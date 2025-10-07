@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>A-Frame</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene xr-mode-ui="XRMode: xr">
+      <a-box grabbable position="0 1 -2" scale="0.1 0.1 0.1"></a-box>
+      <a-entity hand-tracking-grab-controls="hand: left"></a-entity>
+      <a-entity hand-tracking-grab-controls="hand: right"></a-entity>
+    </a-scene>
+  </body>
+</html>

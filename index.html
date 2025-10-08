@@ -25,8 +25,6 @@
                 //オブジェクトがレイキャスターにあてられたとき
                 this.el.addEventListener('raycaster-intersected', function (e) {
                   e.target.setAttribute("ammo-body","type: static");  //物理演算有効化
-                  y = e.target.getAttribute("rotation").y;  //対象オブジェクトy軸回転角度取得
-                  e.target.setAttribute("rotation",{ y: origin*(y+15*rot)});  //対象オブジェクト回転
                 });
 
                 //オブジェクトがレイキャスターからはずれたとき
@@ -47,8 +45,8 @@
 
       <a-plane width="50" height="50" rotation="-90 0 0" ammo-body="type: static" ammo-shape="type: box"></a-plane>
       
-      <a-entity hand-tracking-grab-controls="hand: left"></a-entity>
-      <a-entity hand-tracking-grab-controls="hand: right"></a-entity>
+      <a-entity hand-tracking-grab-controls="hand: left" raycaster="objects: .collidable; far:0;"></a-entity>
+      <a-entity hand-tracking-grab-controls="hand: right" raycaster="objects: .collidable; far:0;"></a-entity>
 
       <a-entity id="ctlL" laser-controls="hand: left"></a-entity>
       <a-entity id="ctlR" laser-controls="hand: right"></a-entity>

@@ -25,11 +25,13 @@
                 //オブジェクトがレイキャスターにあてられたとき
                 this.el.addEventListener('raycaster-intersected', function (e) {
                   e.target.setAttribute("ammo-body","type: static");  //物理演算有効化
+                  e.target.setAttribute("color","white");  //物理演算有効化
                 });
 
                 //オブジェクトがレイキャスターからはずれたとき
                 this.el.addEventListener('raycaster-intersected-cleared', function (e) {
                   e.target.setAttribute("ammo-body","type: dynamic");  //物理演算無効化
+                  e.target.setAttribute("color","black");  //物理演算有効化
                 });
               
             },

@@ -3,10 +3,18 @@
     <meta charset="UTF-8" />
     <title>A-Frame</title>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="//cdn.8thwall.com/web/aframe/ammo.wasm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@4.0.2/dist/aframe-physics-system.min.js"></script> 
   </head>
   <body>
-    <a-scene xr-mode-ui="XRMode: xr">
-      <a-box grabbable position="0 1 -1" scale="0.1 0.1 0.1"></a-box>
+    <a-scene xr-mode-ui="XRMode: xr" physics="driver: ammo; debug: false; debugDrawMode: 1;">
+      <a-box ammo-body="type: dynamic" ammo-shape="type: box;" color="#ff0000" grabbable position="0 1 -1" scale="0.1 0.1 0.1"></a-box>
+      <a-box ammo-body="type: dynamic" ammo-shape="type: box;" color="#00ff00" grabbable position="0.5 1 -1" scale="0.1 0.1 0.1"></a-box>
+      <a-box ammo-body="type: dynamic" ammo-shape="type: box;" color="#0000ff" grabbable position="-0.5 1 -1" scale="0.1 0.1 0.1"></a-box>
+
+      <a-plane ammo-body="type: static" ammo-shape="type: box" width="10" height="10" rotation="-90 0 0"></a-plane>
+      
+      
       <a-entity hand-tracking-grab-controls="hand: left"></a-entity>
       <a-entity hand-tracking-grab-controls="hand: right"></a-entity>
     </a-scene>

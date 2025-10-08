@@ -6,63 +6,16 @@
     <script src="//cdn.8thwall.com/web/aframe/ammo.wasm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@4.0.2/dist/aframe-physics-system.min.js"></script>
   </head>
-
-  <script>
-      AFRAME.registerComponent('input-listener', {
-        init:
-            function () {
-                
-                //レイキャスターが何かしらのオブジェクトにぶつかった時
-                this.el.addEventListener('raycaster-intersection', function (e) {
-                  this.selectedObj = e.detail.els[0]; //交差したオブジェクトのうち0番目を覚えておく(本当はもうちょっと上手にやるべき)
-                });
-
-                //レイキャスターとオブジェクトとの接触完了
-                this.el.addEventListener('raycaster-intersection-cleared', function (e) {
-                  this.selectedObj = null; //レイキャスターと接触しているオブジェクトの情報をクリア
-                });
-              
-                //オブジェクトがレイキャスターにあてられたとき
-                this.el.addEventListener('raycaster-intersected', function (e) {
-                  e.target.setAttribute("ammo-body","type: static");  //物理演算有効化
-                  e.target.setAttribute("color","white");  //物理演算有効化
-                });
-
-                //オブジェクトがレイキャスターからはずれたとき
-                this.el.addEventListener('raycaster-intersected-cleared', function (e) {
-                  e.target.setAttribute("ammo-body","type: dynamic");  //物理演算無効化
-                  e.target.setAttribute("color","black");  //物理演算有効化
-                });
-              
-            },
-
-        function () {
-                if (!this.el.selectedObj) { return; }
-                if (!this.el.grip) { return; }
-                //レイキャスターの向きを取得 (this.elはコントローラを示す)
-                var ray = this.el.getAttribute("raycaster").direction;
-                //レイキャスターの先端の位置を1.2m手前とし、そのワールド座標を計算 
-                var p = new THREE.Vector3(ray.x, ray.y, ray.z);
-                p.normalize();
-                p.multiplyScalar(0);
-                this.el.object3D.localToWorld(p);
-                //レイキャスターの先端に、選択中のオブジェクトを追従させる。
-                this.el.selectedObj.object3D.position.set(p.x, p.y, p.z);
-            }
-    });
-  </script>
   
   <body>
-    <a-scene xr-mode-ui="XRMode: xr" physics="driver: ammo; debug: false; debugDrawMode: 1;">
+    <a-scene xr-mode-ui="XRMode: xr">
       
-      <a-box color="#ff0000" grabbable position="0 1 -1" scale="0.1 0.1 0.1" class="collidable" ammo-body="type: dynamic" ammo-shape="type: box;"></a-box>
-      <a-box color="#00ff00" grabbable position="0.5 1 -1" scale="0.1 0.1 0.1" class="collidable" ammo-body="type: dynamic" ammo-shape="type: box;"></a-box>
-      <a-box color="#0000ff" grabbable position="-0.5 1 -1" scale="0.1 0.1 0.1" class="collidable" ammo-body="type: dynamic" ammo-shape="type: box;"></a-box>
-
-      <a-plane width="50" height="50" rotation="-90 0 0" ammo-body="type: static" ammo-shape="type: box"></a-plane>
+      <a-box color="#ff0000" grabbable position="0 1 -1" scale="0.1 0.1 0.1"></a-box>
+      <a-box color="#00ff00" grabbable position="0.5 1 -1" scale="0.1 0.1 0.1"></a-box>
+      <a-box color="#0000ff" grabbable position="-0.5 1 -1" scale="0.1 0.1 0.1"></a-box>
       
-      <a-entity hand-tracking-grab-controls="hand: left" raycaster="objects: .collidable; far:0;"></a-entity>
-      <a-entity hand-tracking-grab-controls="hand: right" raycaster="objects: .collidable; far:0;"></a-entity>
+      <a-entity hand-tracking-grab-controls="hand: left"></a-entity>
+      <a-entity hand-tracking-grab-controls="hand: right"></a-entity>
 
       <a-entity id="ctlL" laser-controls="hand: left"></a-entity>
       <a-entity id="ctlR" laser-controls="hand: right"></a-entity>

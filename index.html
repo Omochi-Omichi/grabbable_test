@@ -3,6 +3,17 @@
     <meta charset="UTF-8" />
     <title>A-Frame</title>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script>
+        document.getElementById("red").getAttribute("position");
+        document.getElementById("red").getAttribute("rotation");
+        var x=document.getElementById("red").getAttribute("position").x;
+        var y=document.getElementById("red").getAttribute("position").y;
+        var z=document.getElementById("red").getAttribute("position").z;
+        var a=document.getElementById("red").getAttribute("rotation").x;
+        var b=document.getElementById("red").getAttribute("rotation").y;
+        var g=document.getElementById("red").getAttribute("rotation").z;
+      </script>
+
   </head>
   
   <body>
@@ -29,16 +40,7 @@
       <a-text position="0 0.2 -1" value=x>
       </a-text>
 
-      <script>
-        document.getElementById("red").getAttribute("position");
-        document.getElementById("red").getAttribute("rotation");
-        var x=document.getElementById("red").getAttribute("position").x;
-        var y=document.getElementById("red").getAttribute("position").y;
-        var z=document.getElementById("red").getAttribute("position").z;
-        var a=document.getElementById("red").getAttribute("rotation").x;
-        var b=document.getElementById("red").getAttribute("rotation").y;
-        var g=document.getElementById("red").getAttribute("rotation").z;
-      </script>
+      
       
     </a-scene>
   </body>

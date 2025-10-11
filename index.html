@@ -12,18 +12,30 @@
           <a-asset-item id="earth" src="earth.glb"></a-asset-item>
       </a-assets>
       
-      <a-box color="#ff0000" grabbable position="0 1.3 -0.3" scale="0.1 0.1 0.1"></a-box>
-      <a-box color="#00ff00" grabbable position="0.5 1.3 -0.3" scale="0.1 0.1 0.1"></a-box>
-      <a-box color="#0000ff" grabbable position="-0.5 1.3 -0.3" scale="0.1 0.1 0.1"></a-box>
+      <a-box id="red" color="#ff0000" grabbable position="0 1.3 -0.3" scale="0.1 0.1 0.1"></a-box>
+      <a-box id="green"color="#00ff00" grabbable position="0.5 1.3 -0.3" scale="0.1 0.1 0.1"></a-box>
+      <a-box id="blue" color="#0000ff" grabbable position="-0.5 1.3 -0.3" scale="0.1 0.1 0.1"></a-box>
       <a-entity grabbable gltf-model="#earth" position="0 1.6 -0.3" scale="0.3 0.3 0.3"></a-entity>
 
       <!-- <a-plane width="10" height="10" position="0 0.5 0" rotation="-90 0 0"></a-plane> -->
-
-      <a-entity hand-tracking-grab-controls="hand: left"></a-entity>
+      
+      <a-entity hand-tracking-grab-controls="hand: left"><a-text value=x></a-entity>
       <a-entity hand-tracking-grab-controls="hand: right"></a-entity>
       
       <a-entity id="ctlL" laser-controls="hand: left"></a-entity>
       <a-entity id="ctlR" laser-controls="hand: right"></a-entity>
+
+      <script>
+        document.getElementById("red").getAttribute("position");
+        document.getElementById("red").getAttribute("rotation");
+        var x=document.getElementById("red").getAttribute("position").x;
+        var y=document.getElementById("red").getAttribute("position").y;
+        var z=document.getElementById("red").getAttribute("position").z;
+        var a=document.getElementById("red").getAttribute("rotation").x;
+        var b=document.getElementById("red").getAttribute("rotation").y;
+        var g=document.getElementById("red").getAttribute("rotation").z;
+      </script>
+      </script>
       
     </a-scene>
   </body>

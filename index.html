@@ -24,7 +24,27 @@
       
       <a-entity id="ctlL" laser-controls="hand: left"></a-entity>
       <a-entity id="ctlR" laser-controls="hand: right"></a-entity>
+
+      <camera>
+        <a-text id="txt" position="0 0.2 -1"></a-text>
+      </camera>
       
     </a-scene>
+
+      <script>
+      
+        var box = document.getElementById("box");
+        var txt = document.getElementById("txt");
+      
+        box.addEventListener("loaded", function () {
+        // Three.js の position ベクトルを取得
+        var pos = box.object3D.position;
+      
+        // 値を a-text に反映
+        txt.setAttribute("value", `${pos.x.toFixed(2)} ${pos.y.toFixed(2)} ${pos.z.toFixed(2)}`);
+      });
+      
+      </script>
+    
   </body>
 </html>

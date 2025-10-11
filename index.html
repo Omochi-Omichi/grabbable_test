@@ -26,7 +26,7 @@
       <a-entity id="ctlR" laser-controls="hand: right"></a-entity>
 
       <a-camera>
-        <a-text id="txt" position="0 0.2 -1"></a-text>
+        <a-text id="txt" position="-1 0.2 -1"></a-text>
       </a-camera>
 
       <script>
@@ -40,6 +40,7 @@
       
         // 値を a-text に反映
         txt.setAttribute("value", `${pos.x.toFixed(2)} ${pos.y.toFixed(2)} ${pos.z.toFixed(2)}`);
+          box.setAttribute("position"{x:pos.x,y:pos.y,z:pos.z});
       });
       
       </script>

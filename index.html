@@ -30,15 +30,13 @@
       </a-text>
 
       <script>
-        document.getElementById("red").getAttribute("position");
-        document.getElementById("red").getAttribute("rotation");
         var x = document.getElementById("red").getAttribute("position").x;
         var y = document.getElementById("red").getAttribute("position").y;
         var z = document.getElementById("red").getAttribute("position").z;
         var a = document.getElementById("red").getAttribute("rotation").x;
         var b = document.getElementById("red").getAttribute("rotation").y;
         var g = document.getElementById("red").getAttribute("rotation").z;
-        document.getElementById("txt").setAttribute("value",x+" "+y+" "+z);
+        document.getElementById("txt").setAttribute("value",x+","+y+","+z);
       </script>
       
     </a-scene>

@@ -19,11 +19,15 @@
 
       <!-- <a-plane width="10" height="10" position="0 0.5 0" rotation="-90 0 0"></a-plane> -->
       
-      <a-entity hand-tracking-grab-controls="hand: left"><a-text position="0 0.2 0" value=x></a-entity>
+      <a-entity hand-tracking-grab-controls="hand: left"></a-entity>
       <a-entity hand-tracking-grab-controls="hand: right"></a-entity>
       
       <a-entity id="ctlL" laser-controls="hand: left"></a-entity>
       <a-entity id="ctlR" laser-controls="hand: right"></a-entity>
+
+      <a-camera>
+      <a-text position="0 0.2 -1" value=x>
+      </a-text>
 
       <script>
         document.getElementById("red").getAttribute("position");
@@ -34,7 +38,6 @@
         var a=document.getElementById("red").getAttribute("rotation").x;
         var b=document.getElementById("red").getAttribute("rotation").y;
         var g=document.getElementById("red").getAttribute("rotation").z;
-      </script>
       </script>
       
     </a-scene>
